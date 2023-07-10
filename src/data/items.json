@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "tanjiro",
+        "skill": "sun breathing",
+        "imgUrl": "/img/tanjiro.png"
+    },
+    {
+        "id": 2,
+        "name": "inosuke",
+        "skill": "beast breathing",
+        "imgUrl": "/img/inosuke.jpeg"
+    },
+    {
+        "id": 3,
+        "name": "zenitsu",
+        "skill": "thunder breathing",
+        "imgUrl": "/img/zenitsu.jpeg"
+    },
+    {
+        "id": 4,
+        "name": "nezuko",
+        "skill": "cute demon",
+        "imgUrl": "/img/nezuko.jpeg"
+    }
+]
