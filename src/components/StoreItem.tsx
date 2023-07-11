@@ -1,4 +1,5 @@
 import { Button, Card } from "react-bootstrap"
+import { useShoppingCart } from "../context/ShoppingCartContext";
 
 type avatarStat = {
     id: number,
@@ -9,7 +10,9 @@ type avatarStat = {
 
 export function StoreItem({ id, name, skill, imgUrl }: avatarStat) {
 
-    let quantity = 1;
+    const { getItemQuantity, increaseQuantity, decreaseQuantity, removeFromCart } = useShoppingCart();
+
+    let quantity = getItemQuantity(id);
 
     return <>
         <Card>
@@ -25,7 +28,7 @@ export function StoreItem({ id, name, skill, imgUrl }: avatarStat) {
                 </Card.Title>
                 <div className="mt-3">
                     {quantity === 0 ? (
-                        <Button className="w-100">
+                        <Button className="w-100" onClick={() => increaseQuantity(id)}>
                             + Add to cart
                         </Button>
                     ) : (
@@ -34,11 +37,11 @@ export function StoreItem({ id, name, skill, imgUrl }: avatarStat) {
                             <div className="d-flex justify-content-center
                             align-items-center"
                                 style={{ gap: "0.5rem" }}>
-                                <Button>+</Button>
+                                <Button onClick={() => increaseQuantity(id)}>+</Button>
                                 <span className="fs-3">{quantity}</span>in cart
-                                <Button>-</Button>
+                                <Button onClick={() => decreaseQuantity(id)}>-</Button>
                             </div>
-                            <Button variant="danger" size="sm">Remove</Button>
+                            <Button variant="danger" size="sm" onClick={() => removeFromCart(id)}>Remove</Button>
                         </div>
                     )}
                 </div>

@@ -4,19 +4,22 @@ import { Home } from './pages/Home.jsx';
 import { About } from './pages/About.js';
 import { Store } from './pages/Store.js';
 import { Navbar } from './components/Navbar.js';
+import { ShoppingCartProvider } from './context/ShoppingCartContext.js'
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Container>
-        <Routes>
-          {/* element and path are called props and they are like args to the component */}
-          <Route path='/' element={<Home />} />
-          <Route path='/store' element={<Store />} />
-          <Route path='/about' element={<About />} />
-        </Routes>
-      </Container>
+      <ShoppingCartProvider>
+        <Navbar />
+        <Container>
+          <Routes>
+            {/* element and path are called props and they are like args to the component */}
+            <Route path='/' element={<Home />} />
+            <Route path='/store' element={<Store />} />
+            <Route path='/about' element={<About />} />
+          </Routes>
+        </Container>
+      </ShoppingCartProvider>
     </>
   );
 }
