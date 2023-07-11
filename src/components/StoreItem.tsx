@@ -29,12 +29,16 @@ export function StoreItem({ id, name, skill, imgUrl }: avatarStat) {
                             + Add to cart
                         </Button>
                     ) : (
-                        <div className="d-flex justify-content-center
+                        <div className="d-flex justify-content-center 
+                            align-items-center flex-column">
+                            <div className="d-flex justify-content-center
                             align-items-center"
-                            style={{ gap: "0.5rem" }}>
-                            <Button>+</Button>
-                            <span className="fs-3">{quantity}</span>in cart
-                            <Button>-</Button>
+                                style={{ gap: "0.5rem" }}>
+                                <Button>+</Button>
+                                <span className="fs-3">{quantity}</span>in cart
+                                <Button>-</Button>
+                            </div>
+                            <Button variant="danger" size="sm">Remove</Button>
                         </div>
                     )}
                 </div>
