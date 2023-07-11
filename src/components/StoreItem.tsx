@@ -1,4 +1,4 @@
-import { Card } from "react-bootstrap"
+import { Button, Card } from "react-bootstrap"
 
 type avatarStat = {
     id: number,
@@ -8,6 +8,9 @@ type avatarStat = {
 }
 
 export function StoreItem({ id, name, skill, imgUrl }: avatarStat) {
+
+    let quantity = 1;
+
     return <>
         <Card>
             <Card.Img variant="top" src={imgUrl}
@@ -20,6 +23,21 @@ export function StoreItem({ id, name, skill, imgUrl }: avatarStat) {
                     <span className="fs-2">{name}</span>
                     <span className="text-muted">{skill}</span>
                 </Card.Title>
+                <div className="mt-3">
+                    {quantity === 0 ? (
+                        <Button className="w-100">
+                            + Add to cart
+                        </Button>
+                    ) : (
+                        <div className="d-flex justify-content-center
+                            align-items-center"
+                            style={{ gap: "0.5rem" }}>
+                            <Button>+</Button>
+                            <span className="fs-3">{quantity}</span>in cart
+                            <Button>-</Button>
+                        </div>
+                    )}
+                </div>
             </Card.Body>
         </Card>
     </>
