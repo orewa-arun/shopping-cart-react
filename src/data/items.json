@@ -3,24 +3,36 @@
         "id": 1,
         "name": "tanjiro",
         "skill": "sun breathing",
-        "imgUrl": "/img/tanjiro.png"
+        "imgUrl": "/imgs/tanjiro.webp"
     },
     {
         "id": 2,
         "name": "inosuke",
         "skill": "beast breathing",
-        "imgUrl": "/img/inosuke.jpeg"
+        "imgUrl": "/imgs/inosuke.png"
     },
     {
         "id": 3,
         "name": "zenitsu",
         "skill": "thunder breathing",
-        "imgUrl": "/img/zenitsu.jpeg"
+        "imgUrl": "/imgs/zenitsu.webp"
     },
     {
         "id": 4,
         "name": "nezuko",
         "skill": "cute demon",
-        "imgUrl": "/img/nezuko.jpeg"
+        "imgUrl": "/imgs/nezuko.jpg"
+    },
+    {
+        "id": 5,
+        "name": "giyu",
+        "skill": "water breathing",
+        "imgUrl": "/imgs/giyu.jpg"
+    },
+    {
+        "id": 6,
+        "name": "tokito",
+        "skill": "mist breathing",
+        "imgUrl": "/imgs/tokito.webp"
     }
 ]

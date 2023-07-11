@@ -1,5 +1,6 @@
 import { Col, Row } from "react-bootstrap";
 import storeItems from "../data/items.json";
+import { StoreItem } from "../components/StoreItem.jsx"
 
 export function Store() {
     return <>
@@ -7,7 +8,7 @@ export function Store() {
         {/* large means 3,medium means 2 column elements with gap 3 */}
         <Row md={2} xs={1} lg={3} className="g-3">
             {storeItems.map((item) => (
-                <Col>{JSON.stringify(item)}</Col>
+                <Col key={item.id}><StoreItem {...item} /></Col>
             ))}
         </Row>
     </>;
