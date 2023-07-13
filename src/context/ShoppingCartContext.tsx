@@ -36,7 +36,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     // 0 is the initial value of quantity which is the accumulator here.
     const cartQuantity = cartItems.reduce((quanity, item) => item.quantity + quanity, 0);
 
-    console.log(cartItems);
+    // console.log(cartItems);
     const openCart = () => setIsOpen(true);
     const closeCart = () => setIsOpen(false);
 
