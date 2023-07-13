@@ -1,5 +1,6 @@
 import { ReactNode, createContext, useContext, useState } from "react";
-import { ShoppingCart } from "../components/ShoppingCart.jsx"
+import { ShoppingCart } from "../components/ShoppingCart.jsx";
+import { useLocalStorage } from "../hooks/useLocalStorage.jsx";
 
 type CartItem = {
     id: number,
@@ -31,7 +32,9 @@ type ShoppingCartProviderProps = {
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     const [isOpen, setIsOpen] = useState(false);
-    const [cartItems, setCartItems] = useState<CartItem[]>([]);
+    const [cartItems, setCartItems] = useLocalStorage<CartItem[]>(
+        "shopping cart",
+        []);
 
     // 0 is the initial value of quantity which is the accumulator here.
     const cartQuantity = cartItems.reduce((quanity, item) => item.quantity + quanity, 0);
