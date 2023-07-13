@@ -1,14 +1,16 @@
 import { Button, Card } from "react-bootstrap"
 import { useShoppingCart } from "../context/ShoppingCartContext";
+import { rupee } from "../utilities/convertRupee";
 
 type avatarStat = {
     id: number,
     name: string,
     skill: string,
-    imgUrl: string
+    imgUrl: string,
+    price: number
 }
 
-export function StoreItem({ id, name, skill, imgUrl }: avatarStat) {
+export function StoreItem({ id, name, skill, imgUrl, price }: avatarStat) {
 
     const { getItemQuantity, increaseQuantity, decreaseQuantity, removeFromCart } = useShoppingCart();
 
@@ -24,8 +26,9 @@ export function StoreItem({ id, name, skill, imgUrl }: avatarStat) {
                 <Card.Title className="d-flex justify-content-between 
                 align-items-baseline mb-4">
                     <span className="fs-2">{name}</span>
-                    <span className="text-muted">{skill}</span>
+                    <span>{rupee(price)}</span>
                 </Card.Title>
+                <span className="text-muted">{skill}</span>
                 <div className="mt-3">
                     {quantity === 0 ? (
                         <Button className="w-100" onClick={() => increaseQuantity(id)}>

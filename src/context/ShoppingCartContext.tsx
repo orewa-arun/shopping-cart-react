@@ -1,4 +1,5 @@
 import { ReactNode, createContext, useContext, useState } from "react";
+import { ShoppingCart } from "../components/ShoppingCart.jsx"
 
 type CartItem = {
     id: number,
@@ -6,10 +7,14 @@ type CartItem = {
 }
 
 type ShoppingCartContext = {
+    openCart(): void,
+    closeCart(): void,
     getItemQuantity(id: number): number,
     increaseQuantity(id: number): void,
     decreaseQuantity(id: number): void,
     removeFromCart(id: number): void,
+    cartQuantity: number,
+    cartItems: CartItem[]
 }
 
 // Context is used to pass data into children without using props
@@ -25,9 +30,15 @@ type ShoppingCartProviderProps = {
 }
 
 export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
+    const [isOpen, setIsOpen] = useState(false);
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
+    // 0 is the initial value of quantity which is the accumulator here.
+    const cartQuantity = cartItems.reduce((quanity, item) => item.quantity + quanity, 0);
+
     console.log(cartItems);
+    const openCart = () => setIsOpen(true);
+    const closeCart = () => setIsOpen(false);
 
     function getItemQuantity(id: number) {
         return cartItems.find(item => item.id === id)?.quantity || 0;
@@ -74,8 +85,18 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     }
 
     return (
-        <ShoppingCartContext.Provider value={{ getItemQuantity, increaseQuantity, decreaseQuantity, removeFromCart }}>
+        <ShoppingCartContext.Provider value={{
+            openCart,
+            closeCart,
+            getItemQuantity,
+            increaseQuantity,
+            decreaseQuantity,
+            removeFromCart,
+            cartQuantity,
+            cartItems
+        }}>
             {children}
+            <ShoppingCart isOpen={isOpen} />
         </ShoppingCartContext.Provider>
     )
 }

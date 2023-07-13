@@ -3,36 +3,42 @@
         "id": 1,
         "name": "tanjiro",
         "skill": "sun breathing",
-        "imgUrl": "/imgs/tanjiro.webp"
+        "imgUrl": "/imgs/tanjiro.webp",
+        "price": 100
     },
     {
         "id": 2,
         "name": "inosuke",
         "skill": "beast breathing",
-        "imgUrl": "/imgs/inosuke.png"
+        "imgUrl": "/imgs/inosuke.png",
+        "price": 90
     },
     {
         "id": 3,
         "name": "zenitsu",
         "skill": "thunder breathing",
-        "imgUrl": "/imgs/zenitsu.webp"
+        "imgUrl": "/imgs/zenitsu.webp",
+        "price": 95
     },
     {
         "id": 4,
         "name": "nezuko",
         "skill": "cute demon",
-        "imgUrl": "/imgs/nezuko.jpg"
+        "imgUrl": "/imgs/nezuko.jpg",
+        "price": 150
     },
     {
         "id": 5,
         "name": "giyu",
         "skill": "water breathing",
-        "imgUrl": "/imgs/giyu.jpg"
+        "imgUrl": "/imgs/giyu.jpg",
+        "price": 130
     },
     {
         "id": 6,
         "name": "tokito",
         "skill": "mist breathing",
-        "imgUrl": "/imgs/tokito.webp"
+        "imgUrl": "/imgs/tokito.webp",
+        "price": 120
     }
 ]
